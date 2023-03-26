@@ -3,6 +3,16 @@
 ```sh
 
 ```
+# Create virtual environment
+python3 -m venv env
+# Activate virtual environment
+source env/bin/activate
+# Deactivate virtual environment
+deactivate
+# Generate requirements.txt
+pip freeze > requirements.txt
+# Install requirements
+pip install -r requirements.txt
 
 ## Django install
 
@@ -65,3 +75,128 @@ Son las rutas.
 Se relacionan más a la ejecucion del proyecto. 
 
 # Aplicaciones en Django
+
+
+Los proyectos están conformados por aplicaciones.
+
+Ejemplo: un proyecto con autenticación, blog, compras, etc. Cada uno de estos se puede dividir en aplicaciones. 
+
+    project {
+        app{
+            funcionalidades*
+        }
+        app {
+            funcionalidades*
+        }
+        app {
+            funcionalidades*
+        }
+    }
+
+## Crear aplicaciones
+
+```sh
+python3 manage.py startapp blog 
+python3 manage.py startapp store 
+python3 manage.py startapp task
+
+```
+En estas defino las funcionalidades y las acoplo a la APP principal, my site. 
+
+
+## Estructura App
+
+
+- views.py (archivo principal): que se le enviará al cliente para visualizar
+
+- admin.py: añadir las aplicaciones al panel de administrador. Crear datos, usuarios, roles, actualizar. 
+
+- migrations: se actualizará mediante la actualización de la DB. Son archivos creados por ORM. 
+
+- apps.py: config de la app. 
+
+- models.py: crear clases, tablas de SQL. Aqui se usa el ORM. 
+
+- tests.py: testing de las vistas y archivos enviados al cliente. 
+
+
+# Hello World en Django: 
+
+Desde views: 
+
+```py
+
+from django.http import HttpResponse
+
+def hello_world (request):
+    return HttpResponse("Hello World")
+```
+
+¿En que ruta se va a ejecutar? 
+R/. pasarla a mysite/urls
+
+
+# Data Base Model
+
+- migrations: actualizar mediante código de python. La migracion genera esas tablas, esas schemas.
+
+```py
+python3 manage.py makemigrations
+```
+
+## Crear tablas dentro de la DB:
+
+Sirve para construir la base de datos a apartir de los modelos declarados. 
+```py
+python3 manage.py migrate
+```
+
+
+## Unir myapp con mysite: 
+
+Debo crear un modelo para más operaciones. 
+
+# Django Shell
+
+- Manipulacion de la DB mediante la Shell
+
+## Create data en la DB
+
+```sh
+python3 manage.py shell
+```
+Se abrirá:
+
+```py
+from myapp.models import Project, Task
+p = Project(name="aplication movil")
+p
+p.save()
+
+Project.object.all() # All items
+Project.oject.get(id=1) # One item 
+
+Project.oject.get(name="aplication movil") # One item 
+
+# Task
+
+```
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
