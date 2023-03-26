@@ -7,5 +7,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Ejecucion de mis app URLs de myapp. 
-    path('myapp', include('myapp.urls')) # Example: http://127.0.0.1:3000/myapp
+    path('myapp/', include('myapp.urls')) # Example: http://127.0.0.1:3000/myapp
 ]

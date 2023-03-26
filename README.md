@@ -173,7 +173,7 @@ p = Project(name="aplication movil")
 p
 p.save()
 
-Project.object.all() # All items
+Project.objects.all() # All items
 Project.oject.get(id=1) # One item 
 
 Project.oject.get(name="aplication movil") # One item 
@@ -183,7 +183,7 @@ Project.oject.get(name="aplication movil") # One item
 p.task_set.create(title = "descargar IDE")
 p.task_set.create(title = "desarrollar login")
 
-p.tesk_set-all()
+p.tesk_set.all()
 
 p.task_set.get(id=1)
 
@@ -192,13 +192,94 @@ Project.objects.filter(name__starswith="aplicacion")
 
 po = Project.objects
 po.filter(name_startswith="desarrollar")
-
-
 ```
 
+# Params
+
+Recibir informacion desde el cliente para operarlo. 
+
+```py
+ path('params/<str:username>', views.params),
+```
+
+# Params y models
+
+```py
+def projects(request):
+    po = list(Project.objects.values())
+    return JsonResponse(po, safe=False)
+```
+
+# Django Admin
+
+Es un modulo que sirve para administrar todo el proyecto. 
+
+1. Login:
+
+    - Debo crear un usuario. 
+   ```py
+    python3 manage.py create superuser
+   ```
+2. Entrando: 
+
+Usarios y grupos. 
+
+3. Podemos crear projects y tasks.
+
+Usando el admin.py/myapp podemos usarla para implementar nuevas tareas en el admin del proyecto.
 
 
+# Render
 
+Podemos enviar templates, interfaces más elaboradas. 
+
+```py
+def hello_world(request):
+    return render(request, "index.html")
+```
+
+# Templates pass data
+
+- Modulos de templates: permiten procesar HTMLs, añadirlos, agregar lógica. 
+
+En HTML siempre se verá como String. 
+
+```py
+print('Username', username)
+    # Send the parameter by HttpResponse
+    return HttpResponse("<h1>Hello by params %s <h1>" % username)
+```
+
+# Jinja Loops. Recorrer datos/elementos
+
+Motor de plantillas
+
+```html
+    {% for project in projects %}
+    
+    <p> {{project.name}} <p>
+
+    {% endfor %}
+```
+
+# Jinja conditions: 
+
+```html
+{% if task.done == False %} 🕑 {% else %} ✅ {% endif %} 
+```
+
+# Template inheritance 
+
+```html
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+{% endblock %}
+```
+
+# Formularios
+
+Envio de info al server. 
 
     
 
