@@ -180,6 +180,20 @@ Project.oject.get(name="aplication movil") # One item
 
 # Task
 
+p.task_set.create(title = "descargar IDE")
+p.task_set.create(title = "desarrollar login")
+
+p.tesk_set-all()
+
+p.task_set.get(id=1)
+
+# Validation return
+Project.objects.filter(name__starswith="aplicacion")
+
+po = Project.objects
+po.filter(name_startswith="desarrollar")
+
+
 ```
 
 
