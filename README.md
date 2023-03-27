@@ -279,7 +279,21 @@ Motor de plantillas
 
 # Formularios
 
-Envio de info al server. 
+Envio de info al server
+
+## CSRF Toke: 
+
+Pieza de script añadida a formularios para evitar ser copiados y reenviados a todos lugares. 
+
+## URL names
+
+```py
+ path('create_project/', views.create_project, name = 'create_project'),
+```
+## Static files
+
+
+
 
     
 

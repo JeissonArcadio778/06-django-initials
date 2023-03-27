@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends '../layouts/base.html' %}
 
 
 {% block content %}
@@ -12,7 +12,6 @@
 </head>
 <body>
     <h1>projects</h1>
-
     {% for project in projects %}
 
     <p> {{project.name}} <p>
