@@ -23,8 +23,6 @@ def params(request, username):
     return HttpResponse("<h1>Hello by params %s <h1>" % username)
 
 # Manipulate data
-
-
 def projects(request):
     projects = Project.objects.all()
     return render(request, 'projects/projects.html', {
@@ -35,7 +33,6 @@ def projects(request):
 # def projects(request):
 #     po = list(Project.objects.values())
 #     return JsonResponse(po, safe=False)
-
 
 def tasks(request):
 
@@ -50,10 +47,11 @@ def create_task(request):
     # print(request.GET['description'])
 
     if request.method == 'GET':
-
+    
         return render(request, 'tasks/create_task.html', {
             "form": CreateNewTask()
         })
+    
     else:
         Task.objects.create(
             title=request.POST['title'], description=request.POST['description'], project_id=1)

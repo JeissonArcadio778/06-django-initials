@@ -54,7 +54,7 @@ Se usa como archivo de comandos administrativos
 python3 manage.py --help 
 ```
 
-## mySite (modulo de python)
+## mySite (modulo de python). Módulo central. 
 
 Simplemente es un módulo de python. __pycache__: Relacionada con el caché y la optimización del funcionamiento. 
 
@@ -75,7 +75,6 @@ Son las rutas.
 Se relacionan más a la ejecucion del proyecto. 
 
 # Aplicaciones en Django
-
 
 Los proyectos están conformados por aplicaciones.
 
@@ -136,7 +135,7 @@ def hello_world (request):
 R/. pasarla a mysite/urls
 
 
-# Data Base Model
+# Data Base Model. Manipulation Data Base:
 
 - migrations: actualizar mediante código de python. La migracion genera esas tablas, esas schemas.
 
@@ -252,7 +251,7 @@ print('Username', username)
 
 # Jinja Loops. Recorrer datos/elementos
 
-Motor de plantillas
+Jinja: Motor de plantillas. Permite enviar información y manipularla desde Django a los Staticos como HTML
 
 ```html
     {% for project in projects %}
@@ -281,9 +280,11 @@ Motor de plantillas
 
 Envio de info al server
 
-## CSRF Toke: 
+## CSRF Token: 
 
-Pieza de script añadida a formularios para evitar ser copiados y reenviados a todos lugares. 
+Pieza de script añadida a formularios para evitar ser copiados y reenviados a todos lugares.
+Estos son obligatorios en el uso de formularios con Django. 
+
 
 ## URL names
 
